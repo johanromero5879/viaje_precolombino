@@ -3,13 +3,12 @@ const { Schema } = mongoose;
 
 const PreguntaSchema = new Schema({
     enunciado: {type: String, required: true},
-    tema: {type: Schema.Types.ObjectId, ref: 'temas', required: true},
-    info_adicional: {type: String},
-    ref: {type: String, alias: 'referencias'},
+    recurso: {type: Schema.Types.ObjectId, ref: 'recursos', required: true},
     respuestas: [{
+        _id: false,
         descripcion: {type: String, required: true},
         correcta: {type: Boolean, default: false}
     }]
-});
+}, {versionKey: false});
 
 module.exports = mongoose.model('preguntas', PreguntaSchema);

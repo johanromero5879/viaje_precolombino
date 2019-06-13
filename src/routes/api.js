@@ -1,9 +1,7 @@
 const express = require('express');
 const router = express.Router();
+const router_pregunta = require('./preguntas');
 
-// router.route('/test')
-//     .get((req, res) => {
-//         res.send('Esto es un test');
-//     });
+router.use('/pregunta', router_pregunta);
 
 module.exports = router;
