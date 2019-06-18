@@ -4,6 +4,7 @@ import { NgModule } from '@angular/core';
 /*Import modules*/
 import { MaterialModule } from './material/material.module';
 import { AppRoutingModule } from './app-routing.module';
+import { HttpClientModule }    from '@angular/common/http';
 
 /*Import components*/
 import { AppComponent } from './app.component';
@@ -25,7 +26,8 @@ import { FlexLayoutModule } from '@angular/flex-layout';
     BrowserModule,
     FlexLayoutModule,
     MaterialModule,
-    AppRoutingModule
+    AppRoutingModule,
+    HttpClientModule
   ],
   providers: [],
   bootstrap: [AppComponent]
