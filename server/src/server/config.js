@@ -11,11 +11,15 @@ module.exports = app => {
     app.use(express.json());
     app.use(express.urlencoded({extended: true}));
 
+    //Archivos estaticos
+    app.use(express.static(path.join(__dirname, '../../../client/dist')));
+
     //Rutas Api
     app.use('/api', require('../routes/api'));
 
-    //Archivos estaticos
-    app.use('/', express.static(path.join(__dirname, '../../../client/dist')));
+    app.get('*', function(req, res) {
+        res.sendFile(path.join(__dirname, '../../../client/dist/index.html'));
+    });
 
     return app;
 }
