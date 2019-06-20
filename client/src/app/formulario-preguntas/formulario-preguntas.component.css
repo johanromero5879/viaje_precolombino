@@ -6,3 +6,11 @@ mat-radio-group{
 mat-radio-button{
     margin: 8px 0;
 }
+
+.stepper button{
+    float: right;
+}
+
+.resultados{
+    text-align: center;
+}

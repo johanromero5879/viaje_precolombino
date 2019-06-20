@@ -1,5 +1,5 @@
 <div class="page-header">
-  <button *ngIf="tema_actual" mat-button (click)="cambiar_contenido(tema_anterior)">Back</button>
+  <button *ngIf="tema_actual" mat-button (click)="cambiar_contenido(contenido.tema_anterior)">Back</button>
   <h2 class="mat-h2">
     {{ contenido.tema_principal ? contenido.tema_principal.nombre : 'Inicio'}}
   </h2>

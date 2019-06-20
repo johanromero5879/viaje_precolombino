@@ -1,141 +1,27 @@
 <app-navbar></app-navbar>
-<app-page-header></app-page-header>
-<div class="workarea" fxLayout="row wrap" fxLayout.lt-md="column">
-  <mat-card fxFlex="50%" fxFlex.lt-md="100%">
-    <mat-card-title>La familia arawak</mat-card-title>
-    <mat-card-content>
-      <p>Los Arawak tomaron como asiento la Sierra Nevada de Santa Marta. Conforme a modernas investigaciones vivieron en principio en las llanuras costaneras de Colombia y Venezuela, con lo cual perdieron su unidad idiomática y adoptaron dialectos diversos.</p>
+<app-page-header
+(output_recurso)="cambiar_recurso($event)"></app-page-header>
 
-      <p>Algunas tribus de la familia Arawak existen actualmente. De estas, la más conocida es la de los guajiros que todavía conserva puro su tipo racial y sus costumbres.</p>
-      
-      <p>Características Físicas: Los arawak son de talla mediana, piel oscura, rostro ovalado, nariz recta y aguileña. Los hombres visten el guayuco y las mujeres generalmente usan túnicas o batas, faldas o pampanillas. Los indios se pintan el rostro y se adornan con grandes plumas para ceremonias especiales. </p>
-      
-      <p>Son seminómadas, viven de la caza y de la pesca, de la cría de animales domésticos, de la extracción de la sal, de la cestería, de la cerámica. Tejen chinchorros o hamacas. Otra de sus actividades es la recolección de almendras, corozos, huevos de tortuga. </p>
-      
-      <p>Organización social: En algunas tribus existe el patriarcado. En otras de La Guajira, el matriarcado. Creen en un ser superior. Sus fiestas son colectivas y danzan al son de distintos tambores. </p>
-      <p>Arquitectura: Su cultura se caracterizó por el empleo de instrumentos de piedra tallada, cuchillos, hachas y figuras humanas del mismo material. El manejo de la piedra en las construcciones de las viviendas, los altos muros de cercado indican en ellos avanzados conocimientos de talla y arquitectura. </p>
-      
-      <p>Sus terrazas son muestra de los aventajados sistemas que tenían para la conservación de las tierras, evitando la erosión y acumulando mediante ellas gruesas capas de cultivo. De lado iban escalinatas, acueductos, caminos que facilitaban la tarea agrícola y el transporte de los productos.</p>
-      
-      <p>Religión: Rendían culto a los muertos a quienes colocaban en bóvedas de piedra cubiertas de lajas.</p>
-      <p>Alfarería: Trabajaban artísticamente la alfarería y su decoración y policromía la colocan entre lo mejor de la América precolombina.</p>
-      <p>Vestido: Usaban escaso vestido, se deformaban el cráneo y se pintaban el cuerpo.</p>
-      <p>Agricultura: Cultivaron el maíz, el tabaco, el algodón, las calabazas y los fríjoles. De las tierras cálidas se aprovisionaban de yuca, guanábanas, piñas, guayabas y ciruelas.</p>
-      <p>Orfebrería: Alearon el oro y el cobre y fabricaron filigranas y collares de delicada finura. Usaban la coca para saciar el hambre y como músicos emplearon tambores de cuero y flautas de huesos humanos.</p>
+<div *ngIf="recurso" class="workarea" fxLayout="row wrap" fxLayout.lt-md="column">
+  <mat-card fxFlex="50%" fxFlex.lt-md="100%">
+    <mat-card-title>{{ recurso.nombre }}</mat-card-title>
+    <mat-card-content>
+      {{ recurso.info }}
     </mat-card-content>
   </mat-card>
-  <mat-horizontal-stepper #stepper fxFlex="50%" fxFlex.lt-md="100%">
-    <mat-step [stepControl]="firstFormGroup">
-      <form [formGroup]="firstFormGroup">
-        <p>
-          Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc porttitor a lacus quis maximus. Vestibulum fermentum purus at placerat blandit. Sed id tincidunt elit.
-        </p>
-        <mat-radio-group>
-          <mat-radio-button value="1">Opcion 1</mat-radio-button>
-          <mat-radio-button value="2">Opcion 2</mat-radio-button>
-          <mat-radio-button value="3">Opcion 3</mat-radio-button>
-          <mat-radio-button value="4">Opcion 4</mat-radio-button>
-        </mat-radio-group>
-      </form>
-    </mat-step>
-    <mat-step [stepControl]="firstFormGroup">
-      <form [formGroup]="firstFormGroup">
-        <p>
-          Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc porttitor a lacus quis maximus. Vestibulum fermentum purus at placerat blandit. Sed id tincidunt elit.
-        </p>
-        <mat-radio-group>
-          <mat-radio-button value="1">Opcion 1</mat-radio-button>
-          <mat-radio-button value="2">Opcion 2</mat-radio-button>
-        </mat-radio-group>
-      </form>
-    </mat-step>
-    <mat-step [stepControl]="firstFormGroup">
-      <form [formGroup]="firstFormGroup">
-        <p>
-          Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc porttitor a lacus quis maximus. Vestibulum fermentum purus at placerat blandit. Sed id tincidunt elit.
-        </p>
-        <mat-radio-group>
-          <mat-radio-button value="1">Opcion 1</mat-radio-button>
-          <mat-radio-button value="2">Opcion 2</mat-radio-button>
-        </mat-radio-group>
-      </form>
-    </mat-step>
-    <mat-step [stepControl]="firstFormGroup">
-      <form [formGroup]="firstFormGroup">
-        <p>
-          Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc porttitor a lacus quis maximus. Vestibulum fermentum purus at placerat blandit. Sed id tincidunt elit.
-        </p>
-        <mat-radio-group>
-          <mat-radio-button value="1">Opcion 1</mat-radio-button>
-          <mat-radio-button value="2">Opcion 2</mat-radio-button>
-        </mat-radio-group>
-      </form>
-    </mat-step>
-    <mat-step [stepControl]="firstFormGroup">
-      <form [formGroup]="firstFormGroup">
-        <p>
-          Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc porttitor a lacus quis maximus. Vestibulum fermentum purus at placerat blandit. Sed id tincidunt elit.
-        </p>
-        <mat-radio-group>
-          <mat-radio-button value="1">Opcion 1</mat-radio-button>
-          <mat-radio-button value="2">Opcion 2</mat-radio-button>
-        </mat-radio-group>
-      </form>
-    </mat-step>
-    <mat-step [stepControl]="firstFormGroup">
-      <form [formGroup]="firstFormGroup">
-        <p>
-          Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc porttitor a lacus quis maximus. Vestibulum fermentum purus at placerat blandit. Sed id tincidunt elit.
-        </p>
-        <mat-radio-group>
-          <mat-radio-button value="1">Opcion 1</mat-radio-button>
-          <mat-radio-button value="2">Opcion 2</mat-radio-button>
-        </mat-radio-group>
-      </form>
-    </mat-step>
-    <mat-step [stepControl]="firstFormGroup">
-      <form [formGroup]="firstFormGroup">
-        <p>
-          Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc porttitor a lacus quis maximus. Vestibulum fermentum purus at placerat blandit. Sed id tincidunt elit.
-        </p>
-        <mat-radio-group>
-          <mat-radio-button value="1">Opcion 1</mat-radio-button>
-          <mat-radio-button value="2">Opcion 2</mat-radio-button>
-        </mat-radio-group>
-      </form>
-    </mat-step>
-    <mat-step [stepControl]="firstFormGroup">
-      <form [formGroup]="firstFormGroup">
-        <p>
-          Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc porttitor a lacus quis maximus. Vestibulum fermentum purus at placerat blandit. Sed id tincidunt elit.
-        </p>
-        <mat-radio-group>
-          <mat-radio-button value="1">Opcion 1</mat-radio-button>
-          <mat-radio-button value="2">Opcion 2</mat-radio-button>
-        </mat-radio-group>
-      </form>
-    </mat-step>
-    <mat-step [stepControl]="firstFormGroup">
-      <form [formGroup]="firstFormGroup">
-        <p>
-          Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc porttitor a lacus quis maximus. Vestibulum fermentum purus at placerat blandit. Sed id tincidunt elit.
-        </p>
-        <mat-radio-group>
-          <mat-radio-button value="1">Opcion 1</mat-radio-button>
-          <mat-radio-button value="2">Opcion 2</mat-radio-button>
-        </mat-radio-group>
-      </form>
-    </mat-step>
-    <mat-step [stepControl]="firstFormGroup">
-      <form [formGroup]="firstFormGroup">
-        <p>
-          Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc porttitor a lacus quis maximus. Vestibulum fermentum purus at placerat blandit. Sed id tincidunt elit.
-        </p>
-        <mat-radio-group>
-          <mat-radio-button value="1">Opcion 1</mat-radio-button>
-          <mat-radio-button value="2">Opcion 2</mat-radio-button>
-        </mat-radio-group>
-      </form>
+  <mat-horizontal-stepper class="stepper" *ngIf="!resultados" fxFlex="50%" fxFlex.lt-md="100%">
+    <mat-step *ngFor="let pregunta of recurso.preguntas; let i = index">
+      <p>{{ pregunta.enunciado}}</p>
+      <mat-radio-group [(ngModel)]="respuestas[i].indice">
+        <mat-radio-button *ngFor="let opcion of pregunta.opciones; let j = index" [value]="j">{{ opcion.descripcion }}</mat-radio-button>
+      </mat-radio-group>
+      <button mat-raised-button color="primary" *ngIf="i == recurso.preguntas.length - 1" (click)="enviar()">Evaluar</button>
     </mat-step>
   </mat-horizontal-stepper>
+  <mat-card *ngIf="resultados" fxFlex="50%" fxFlex.lt-md="100%" class="resultados">
+    <h3 class="mat-3">{{ resultados.porcentaje >= 70 ? '¡Felicidades!' : '¡Ups¡ Intentelo de nuevo'}}</h3>
+    <p>Aciertos: {{ resultados.aciertos+'/'+resultados.total}}</p>
+    <p>Porcentaje: {{ resultados.porcentaje}}%</p>
+    <button mat-raised-button color="primary" *ngIf="resultados.porcentaje < 70" (click)="resetear()">Reintentar</button>
+  </mat-card>
 </div>

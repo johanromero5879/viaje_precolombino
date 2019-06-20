@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+
 @Component({
   selector: 'app-contents-list',
   templateUrl: './contents-list.component.html',
@@ -8,7 +9,7 @@ export class ContentsListComponent implements OnInit {
   
   private contenido = {};
   private tema_actual = '';
-  constructor() { }
+  constructor( ) { }
 
   ngOnInit() {}
   

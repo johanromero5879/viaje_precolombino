@@ -1,12 +1,15 @@
 const tema_modelo = require('../models/tema');
-const recurso_modelo = require('../models/recursos');
+const ctrl_recurso = require('./recursos');
 
-const ctrl = {};
+let ctrl = {};
+
+ctrl.organizar_contenido = async (tema) => {
+    
+}
 
 ctrl.obtener_contenido = async (id = '') => {
     let contenido = { 
-        subcontenidos: [],
-        recursos: false
+        subcontenidos: []
     };
     let subcontenidos;
     if(id != ''){
@@ -20,16 +23,13 @@ ctrl.obtener_contenido = async (id = '') => {
 
             subcontenidos = await tema_modelo.find({ tema_principal: id });
             if(!subcontenidos.length > 0){
-                subcontenidos = await recurso_modelo.find({ tema: id });
-                contenido.recursos = subcontenidos ? true : false;
+                
+                subcontenidos = await ctrl_recurso.consultar_por_tema(id);
             }
-
-            
         }
     }else{
         subcontenidos = await tema_modelo.find({ tema_principal: {$exists: false} });
     }
-    
     if(subcontenidos && subcontenidos.length > 0){
         for (const subcontenido of subcontenidos) {
             contenido.subcontenidos.push({

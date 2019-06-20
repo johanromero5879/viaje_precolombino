@@ -1,7 +1,7 @@
 const pregunta_modelo = require('../models/pregunta');
 
 /*Declaración del controlador*/
-const ctrl = {};
+let ctrl = {};
 
 /*Crea una pregunta*/
 ctrl.crear = async (preguntas) => {
@@ -46,7 +46,7 @@ ctrl.evaluar = async (respuestas) => {
         }
     }
     /*Calcula el procentaje de aciertos*/
-    resultado.porcentaje = resultado.aciertos * 100 / resultado.total;
+    resultado.porcentaje = Math.round(resultado.aciertos * 100 / resultado.total);
 
     return resultado;
 }

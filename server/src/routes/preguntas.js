@@ -12,7 +12,7 @@ router.route('/')
     });
 
 router.route('/evaluar')
-    .get(async (req, res) => {
+    .post(async (req, res) => {
         const response = await ctrl_preguntas.evaluar(req.body);
         res.json(response);
     });

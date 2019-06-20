@@ -7,8 +7,7 @@
 <div class="contents-list" fxLayout="row wrap" fxLayout.lt-sm="column" fxLayoutGap="32px" fxLayoutAlign="flex-start">
   <a *ngFor="let subcontenido of contenido.subcontenidos" fxFlex="0 1 calc(33.3% - 32px)"
     fxFlex.lt-md="0 1 calc(50% - 32px)"
-    fxFlex.lt-sm="100%" class="content" (click)="cambiar_contenido(subcontenido._id)" 
-    [routerLink]="contenido.recursos ? '/recurso/'+subcontenido._id : ''">
+    fxFlex.lt-sm="100%" class="content" (click)="cambiar_contenido(subcontenido._id)">
     <mat-card matRipple>
       <mat-card-title>{{ subcontenido.nombre}}</mat-card-title>
     </mat-card>
