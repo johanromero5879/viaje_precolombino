@@ -1,6 +1,8 @@
 <div class="page-header">
-  <button *ngIf="tema_actual" mat-button (click)="cambiar_contenido(contenido.tema_anterior)">Back</button>
   <h2 class="mat-h2">
-    {{ contenido.tema_principal ? contenido.tema_principal.nombre : 'Inicio'}}
+    <button *ngIf="tema_actual" mat-icon-button (click)="cambiar_contenido(contenido.tema_anterior)">
+      <mat-icon>arrow_back_ios</mat-icon>
+    </button>
+    <span>{{ contenido.tema_principal ? contenido.tema_principal.nombre : 'Inicio'}}</span>
   </h2>
 </div>

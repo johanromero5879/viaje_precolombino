@@ -15,7 +15,7 @@ import { AppComponent } from './app.component';
 import { NavbarComponent } from './navbar/navbar.component';
 import { PageHeaderComponent } from './page-header/page-header.component';
 import { ContentsListComponent } from './contents-list/contents-list.component';
-import { FormularioPreguntasComponent } from './formulario-preguntas/formulario-preguntas.component';
+import { FormularioPreguntasComponent, DialogPreguntas } from './formulario-preguntas/formulario-preguntas.component';
 
 @NgModule({
   declarations: [
@@ -23,7 +23,8 @@ import { FormularioPreguntasComponent } from './formulario-preguntas/formulario-
     NavbarComponent,
     PageHeaderComponent,
     ContentsListComponent,
-    FormularioPreguntasComponent
+    FormularioPreguntasComponent,
+    DialogPreguntas
   ],
   imports: [
     BrowserModule,
@@ -33,6 +34,9 @@ import { FormularioPreguntasComponent } from './formulario-preguntas/formulario-
     HttpClientModule,
     FormsModule,
     ReactiveFormsModule
+  ],
+  entryComponents: [
+    DialogPreguntas
   ],
   providers: [],
   bootstrap: [AppComponent]

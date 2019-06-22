@@ -5,9 +5,17 @@
 <div *ngIf="recurso" class="workarea" fxLayout="row wrap" fxLayout.lt-md="column">
   <mat-card fxFlex="50%" fxFlex.lt-md="100%">
     <mat-card-title>{{ recurso.nombre }}</mat-card-title>
-    <mat-card-content>
-      {{ recurso.info }}
-    </mat-card-content>
+    <mat-card-content [innerHTML]="textoService.convertir_a_HTML(recurso.info)"></mat-card-content>
+    <mat-card-footer *ngIf="recurso.refs && recurso.refs.length > 0" class="refs">
+      <div>
+        <span>Fuentes:</span>
+      </div>
+      <div>
+        <a *ngFor="let ref of recurso.refs" [href]="ref.url" target="_blank" mat-button>
+          {{ ref.autor }}
+        </a>
+      </div>
+    </mat-card-footer>
   </mat-card>
   <mat-horizontal-stepper class="stepper" *ngIf="!resultados" fxFlex="50%" fxFlex.lt-md="100%">
     <mat-step *ngFor="let pregunta of recurso.preguntas; let i = index">
@@ -22,6 +30,8 @@
     <h3 class="mat-3">{{ resultados.porcentaje >= 70 ? '¡Felicidades!' : '¡Ups¡ Intentelo de nuevo'}}</h3>
     <p>Aciertos: {{ resultados.aciertos+'/'+resultados.total}}</p>
     <p>Porcentaje: {{ resultados.porcentaje}}%</p>
-    <button mat-raised-button color="primary" *ngIf="resultados.porcentaje < 70" (click)="resetear()">Reintentar</button>
+    <button mat-raised-button color="primary" *ngIf="resultados.porcentaje < 70" (click)="resetear()">
+      <mat-icon>refresh</mat-icon> Reintentar
+    </button>
   </mat-card>
 </div>

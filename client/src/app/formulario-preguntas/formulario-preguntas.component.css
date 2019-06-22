@@ -6,6 +6,25 @@ mat-radio-group{
 mat-radio-button{
     margin: 8px 0;
 }
+.refs{
+    display: flex;
+    flex-direction: row;
+}
+
+.refs div{
+    margin-left: 8px;
+}
+
+.refs span{
+    position: relative;
+    top: 7px;
+    margin-top: 4px;
+}
+
+.refs a{
+    text-align: left;
+    display: block;
+}
 
 .stepper button{
     float: right;

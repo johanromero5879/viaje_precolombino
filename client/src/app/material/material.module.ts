@@ -14,24 +14,13 @@ import {
   MatRippleModule,
   MatStepperModule,
   MatFormFieldModule,
-  MatRadioModule
+  MatRadioModule,
+  MatIconModule,
+  MatDialogModule
 } from '@angular/material';
 
 @NgModule({
   declarations: [],
-  imports: [
-    CommonModule,
-    BrowserAnimationsModule,
-    MatButtonModule,
-    MatCheckboxModule,
-    MatMenuModule,
-    MatToolbarModule,
-    MatCardModule,
-    MatRippleModule,
-    MatStepperModule,
-    MatFormFieldModule,
-    MatRadioModule
-  ],
   exports: [
     CommonModule,
     BrowserAnimationsModule,
@@ -43,7 +32,9 @@ import {
     MatRippleModule,
     MatStepperModule,
     MatFormFieldModule,
-    MatRadioModule
+    MatRadioModule,
+    MatIconModule,
+    MatDialogModule
   ],
 })
 export class MaterialModule { }
