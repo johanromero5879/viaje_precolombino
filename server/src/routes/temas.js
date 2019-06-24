@@ -9,11 +9,11 @@ router.route('/contenido')
         res.json(response);
     });
 
-router.route('/contenido/:id')
+
+router.route('/:tema/contenido')
     .get(async (req, res) => {
-        const response = await ctrl_temas.obtener_contenido(req.params.id);
+        const response = await ctrl_temas.obtener_contenido(req.params.tema);
         res.json(response);
     });
-
 
 module.exports = router;

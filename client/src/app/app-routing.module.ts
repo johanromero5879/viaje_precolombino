@@ -6,7 +6,9 @@ import { FormularioPreguntasComponent } from './formulario-preguntas/formulario-
 
 const routes: Routes = [
   { path: '', component: ContentsListComponent},
-  { path: 'recurso/:id', component: FormularioPreguntasComponent}
+  { path: 'contenido', component: ContentsListComponent },
+  { path: 'tema/:tema/contenido', component: ContentsListComponent },
+  { path: 'recurso/:recurso', component: FormularioPreguntasComponent}
 ];
 
 @NgModule({

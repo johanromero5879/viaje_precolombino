@@ -1,19 +1,28 @@
 const tema_modelo = require('../models/tema');
 const ctrl_recurso = require('./recursos');
-
+const mongoose = require('mongoose');
 let ctrl = {};
 
-ctrl.organizar_contenido = async (tema) => {
-    
+
+ctrl.armar_busqueda = (busqueda) => {
+    let query = {};
+    if(mongoose.Types.ObjectId.isValid(busqueda)){
+        query._id = busqueda;
+    }else{
+        /*Reemplaza los guiones con un espacio*/
+        busqueda = busqueda.replace(/-/g, ' ');
+        query.nombre = { $regex: busqueda, $options: 'i'};
+    }
+    return query;
 }
 
-ctrl.obtener_contenido = async (id = '') => {
+ctrl.obtener_contenido = async (busqueda = '') => {
     let contenido = { 
         subcontenidos: []
     };
     let subcontenidos;
-    if(id != ''){
-        const tema = await tema_modelo.findById(id);
+    if(busqueda != ''){
+        const tema = await tema_modelo.findOne(ctrl.armar_busqueda(busqueda));
         if(tema){
             contenido.tema_principal = {_id: tema._id, nombre: tema.nombre};
 
@@ -21,10 +30,10 @@ ctrl.obtener_contenido = async (id = '') => {
                 contenido.tema_anterior = tema.tema_principal;
             }
 
-            subcontenidos = await tema_modelo.find({ tema_principal: id });
+            subcontenidos = await tema_modelo.find({ tema_principal: tema._id });
             if(!subcontenidos.length > 0){
-                
-                subcontenidos = await ctrl_recurso.consultar_por_tema(id);
+                subcontenidos = await ctrl_recurso.consultar_por_tema(tema._id);
+                contenido.recursos = true;
             }
         }
     }else{

@@ -8,17 +8,11 @@ import { Component, OnInit } from '@angular/core';
 export class ContentsListComponent implements OnInit {
   
   private contenido = {};
-  private tema_actual = '';
   constructor( ) { }
 
   ngOnInit() {}
   
-  cambiar_subcontenidos(contenido){
+  cambiar_contenido(contenido){
     this.contenido = contenido;
-    this.tema_actual = this.contenido['tema_principal'] ? this.contenido['tema_principal']._id : '';
-  }
-
-  cambiar_contenido(id){
-    this.tema_actual = id;
   }
 }

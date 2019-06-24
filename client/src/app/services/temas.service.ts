@@ -13,8 +13,13 @@ export class TemasService {
     private http:HttpClient
   ) { }
 
-  obtener_contenido(id = ''){
-    let url = `${this.URL}/contenido/${(id ? id : '')}`;
+  obtener_contenido(tema = ''){
+    let url = `${this.URL}/`;
+    if(tema){
+      url += `${tema}/`;
+    }
+    url += 'contenido';
+    
     return this.http.get(url);
   }
 }

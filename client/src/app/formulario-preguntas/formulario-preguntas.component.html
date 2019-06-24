@@ -1,12 +1,15 @@
 <app-navbar></app-navbar>
 <app-page-header
-(output_recurso)="cambiar_recurso($event)"></app-page-header>
+(output_recurso)="cambiar_recurso($event)">
+</app-page-header>
 
 <div *ngIf="recurso" class="workarea" fxLayout="row wrap" fxLayout.lt-md="column">
-  <mat-card fxFlex="50%" fxFlex.lt-md="100%">
-    <mat-card-title>{{ recurso.nombre }}</mat-card-title>
-    <mat-card-content [innerHTML]="textoService.convertir_a_HTML(recurso.info)"></mat-card-content>
-    <mat-card-footer *ngIf="recurso.refs && recurso.refs.length > 0" class="refs">
+  <div fxFlex="50%" fxFlex.lt-md="100%" class="mat-typography">
+    <div class="info">
+      <h2>{{ recurso.nombre }}</h2>
+      <div [innerHTML]="textoService.convertir_a_HTML(recurso.info)"></div>
+    </div>
+    <div *ngIf="recurso.refs && recurso.refs.length > 0" class="refs">
       <div>
         <span>Fuentes:</span>
       </div>
@@ -15,8 +18,8 @@
           {{ ref.autor }}
         </a>
       </div>
-    </mat-card-footer>
-  </mat-card>
+    </div>
+  </div>
   <mat-horizontal-stepper class="stepper" *ngIf="!resultados" fxFlex="50%" fxFlex.lt-md="100%">
     <mat-step *ngFor="let pregunta of recurso.preguntas; let i = index">
       <p>{{ pregunta.enunciado}}</p>

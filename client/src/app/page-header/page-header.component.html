@@ -1,6 +1,8 @@
 <div class="page-header">
   <h2 class="mat-h2">
-    <button *ngIf="tema_actual" mat-icon-button (click)="cambiar_contenido(contenido.tema_anterior)">
+    <button *ngIf="contenido.tema_principal" mat-icon-button 
+    [routerLink]="activatedRoute.snapshot.params['recurso'] ? '../../tema/'+contenido.tema_anterior+'/contenido' : 
+    contenido.tema_anterior ? '../../'+contenido.tema_anterior+'/contenido' : '../../../contenido'">
       <mat-icon>arrow_back_ios</mat-icon>
     </button>
     <span>{{ contenido.tema_principal ? contenido.tema_principal.nombre : 'Inicio'}}</span>

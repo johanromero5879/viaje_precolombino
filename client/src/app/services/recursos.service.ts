@@ -9,8 +9,8 @@ export class RecursosService {
 
   constructor(private http: HttpClient) { }
 
-  obtener_recurso(id){
-    let url = `${this.URL}/${id}`;
+  obtener_recurso(recurso){
+    let url = `${this.URL}/${recurso}`;
     return this.http.get(url);
   }
 }
