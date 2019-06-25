@@ -11,8 +11,13 @@ export class FormatearTextoService {
     private titleService: Title
   ) { }
 
-  cambiar_titulo(titulo){
-    titulo = titulo+' - '+this.titulo;
+  cambiar_titulo(titulo = ''){
+    if(titulo){
+      titulo = titulo+' - '+this.titulo;
+    }
+
+    titulo += this.titulo;
+    
     this.titleService.setTitle(titulo);
   }
   convertir_a_HTML(texto){

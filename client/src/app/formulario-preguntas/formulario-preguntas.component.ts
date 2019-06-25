@@ -1,6 +1,5 @@
 import { Component, OnInit, Inject } from '@angular/core';
-import {FormBuilder, FormGroup, Validators} from '@angular/forms';
-import {MatDialog, MatDialogRef, MAT_DIALOG_DATA} from '@angular/material/dialog';
+import {MatDialog, MatDialogRef} from '@angular/material/dialog';
 
 import { PreguntasService } from '../services/preguntas.service';
 import { FormatearTextoService } from '../services/formatear-texto.service';
@@ -16,7 +15,6 @@ export class FormularioPreguntasComponent implements OnInit {
   respuestas = [];
   resultados;
   constructor(
-    private _formBuilder: FormBuilder,
     private preguntas_service: PreguntasService,
     private textoService: FormatearTextoService,
     private dialog: MatDialog) {}
@@ -74,6 +72,7 @@ export class FormularioPreguntasComponent implements OnInit {
 @Component({
   selector: 'dialog-preguntas',
   templateUrl: 'dialog.html',
+  styleUrls: ['dialog.css']
 })
 export class DialogPreguntas {
 

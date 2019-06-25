@@ -20,13 +20,18 @@
       </div>
     </div>
   </div>
-  <mat-horizontal-stepper class="stepper" *ngIf="!resultados" fxFlex="50%" fxFlex.lt-md="100%">
+  <mat-horizontal-stepper *ngIf="!resultados" fxFlex="50%" fxFlex.lt-md="100%">
     <mat-step *ngFor="let pregunta of recurso.preguntas; let i = index">
       <p>{{ pregunta.enunciado}}</p>
       <mat-radio-group [(ngModel)]="respuestas[i].indice">
         <mat-radio-button *ngFor="let opcion of pregunta.opciones; let j = index" [value]="j">{{ opcion.descripcion }}</mat-radio-button>
       </mat-radio-group>
-      <button mat-raised-button color="primary" *ngIf="i == recurso.preguntas.length - 1" (click)="enviar()">Evaluar</button>
+      <div class="stepper-actions">
+        <button mat-raised-button *ngIf="i != 0" matStepperPrevious>Anterior</button>
+        <button mat-raised-button matStepperNext *ngIf="i != recurso.preguntas.length - 1">Siguiente</button>
+        <button mat-raised-button color="primary" *ngIf="i == recurso.preguntas.length - 1" (click)="enviar()">Evaluar</button>
+      </div>
+      
     </mat-step>
   </mat-horizontal-stepper>
   <mat-card *ngIf="resultados" fxFlex="50%" fxFlex.lt-md="100%" class="resultados">

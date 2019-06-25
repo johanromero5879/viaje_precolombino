@@ -45,6 +45,8 @@ export class PageHeaderComponent implements OnInit {
             /*Cambia el titulo de <title>*/
             if(this.contenido['tema_principal']){
               this.textoService.cambiar_titulo(this.contenido['tema_principal'].nombre);
+            }else{
+              this.textoService.cambiar_titulo();
             }
             this.output_contenido.emit(this.contenido);
           }

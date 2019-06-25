@@ -37,8 +37,12 @@ mat-radio-button{
     display: block;
 }
 
-.stepper button{
+.stepper-actions{
     float: right;
+}
+
+.stepper-actions button{
+    margin-left: 8px;
 }
 
 .resultados{
