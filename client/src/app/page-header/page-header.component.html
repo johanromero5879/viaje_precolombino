@@ -1,10 +1,9 @@
 <div class="page-header">
   <h2 class="mat-h2">
     <button *ngIf="contenido.tema_principal" mat-icon-button 
-    [routerLink]="activatedRoute.snapshot.params['recurso'] ? '../../tema/'+contenido.tema_anterior+'/contenido' : 
-    contenido.tema_anterior ? '../../'+contenido.tema_anterior+'/contenido' : '../../../contenido'">
+    [routerLink]="obtener_url()">
       <mat-icon>arrow_back_ios</mat-icon>
     </button>
-    <span>{{ contenido.tema_principal ? contenido.tema_principal.nombre : 'Inicio'}}</span>
+    <span>{{ contenido.tema_principal ? contenido.tema_principal.nombre : 'Contenidos temáticos'}}</span>
   </h2>
 </div>

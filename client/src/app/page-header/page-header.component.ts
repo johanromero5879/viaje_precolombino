@@ -1,5 +1,5 @@
 import { Component, OnInit, Output, EventEmitter } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 /*Services*/
 import { TemasService } from '../services/temas.service';
 import { RecursosService } from '../services/recursos.service';
@@ -20,6 +20,7 @@ export class PageHeaderComponent implements OnInit {
     private recursos_service: RecursosService,
     private textoService: FormatearTextoService,
     private activatedRoute: ActivatedRoute,
+    private router: Router
   ) { }
 
   ngOnInit() {
@@ -48,8 +49,10 @@ export class PageHeaderComponent implements OnInit {
             }else{
               this.textoService.cambiar_titulo();
             }
-            this.output_contenido.emit(this.contenido);
+          }else{
+            this.router.navigate([this.obtener_url()]);
           }
+          this.output_contenido.emit(this.contenido);
         });
         break;
       case 'r':
@@ -64,6 +67,11 @@ export class PageHeaderComponent implements OnInit {
         });
         break;
     }
+  }
+
+  obtener_url(){
+    return this.activatedRoute.snapshot.params['recurso'] ? '../../tema/'+this.contenido['tema_anterior']+'/contenido' : 
+    this.contenido['tema_anterior'] ? '../../'+this.contenido['tema_anterior']+'/contenido' : '../../../contenido';
   }
 
 }

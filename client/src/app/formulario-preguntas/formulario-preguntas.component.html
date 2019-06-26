@@ -38,7 +38,7 @@
     <h3 class="mat-3">{{ resultados.porcentaje >= 70 ? '¡Felicidades!' : '¡Ups¡ Intentelo de nuevo'}}</h3>
     <p>Aciertos: {{ resultados.aciertos+'/'+resultados.total}}</p>
     <p>Porcentaje: {{ resultados.porcentaje}}%</p>
-    <button mat-raised-button color="primary" *ngIf="resultados.porcentaje < 70" (click)="resetear()">
+    <button mat-raised-button color="primary" (click)="resetear()">
       <mat-icon>refresh</mat-icon> Reintentar
     </button>
   </mat-card>

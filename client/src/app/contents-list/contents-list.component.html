@@ -7,8 +7,7 @@
   <a *ngFor="let subcontenido of contenido.subcontenidos" fxFlex="0 1 calc(33.3% - 32px)"
     fxFlex.lt-md="0 1 calc(50% - 32px)"
     fxFlex.lt-sm="100%" class="content" 
-    [routerLink]="contenido.recursos ? '../../../recurso/'+subcontenido._id : 
-    contenido.tema_principal ? '../../'+subcontenido._id+'/contenido' : '../tema/'+subcontenido._id+'/contenido'">
+    [routerLink]="obtener_url(subcontenido._id)">
     <mat-card matRipple>
       <mat-card-title>{{ subcontenido.nombre}}</mat-card-title>
     </mat-card>
